@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RegionPacksRouteImport } from './routes/region-packs'
 import { Route as ProvidersRouteImport } from './routes/providers'
 import { Route as GuidesRouteImport } from './routes/guides'
@@ -22,6 +23,11 @@ import { Route as AuthenticatedSosRouteImport } from './routes/_authenticated/so
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegionPacksRoute = RegionPacksRouteImport.update({
   id: '/region-packs',
   path: '/region-packs',
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/guides': typeof GuidesRouteWithChildren
   '/providers': typeof ProvidersRoute
   '/region-packs': typeof RegionPacksRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/sos': typeof AuthenticatedSosRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/guides': typeof GuidesRouteWithChildren
   '/providers': typeof ProvidersRoute
   '/region-packs': typeof RegionPacksRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/sos': typeof AuthenticatedSosRoute
@@ -117,6 +125,7 @@ export interface FileRoutesById {
   '/guides': typeof GuidesRouteWithChildren
   '/providers': typeof ProvidersRoute
   '/region-packs': typeof RegionPacksRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/sos': typeof AuthenticatedSosRoute
@@ -132,6 +141,7 @@ export interface FileRouteTypes {
     | '/guides'
     | '/providers'
     | '/region-packs'
+    | '/sitemap.xml'
     | '/admin'
     | '/dashboard'
     | '/sos'
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
     | '/guides'
     | '/providers'
     | '/region-packs'
+    | '/sitemap.xml'
     | '/admin'
     | '/dashboard'
     | '/sos'
@@ -159,6 +170,7 @@ export interface FileRouteTypes {
     | '/guides'
     | '/providers'
     | '/region-packs'
+    | '/sitemap.xml'
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
     | '/_authenticated/sos'
@@ -174,10 +186,18 @@ export interface RootRouteChildren {
   GuidesRoute: typeof GuidesRouteWithChildren
   ProvidersRoute: typeof ProvidersRoute
   RegionPacksRoute: typeof RegionPacksRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/region-packs': {
       id: '/region-packs'
       path: '/region-packs'
@@ -301,6 +321,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuidesRoute: GuidesRouteWithChildren,
   ProvidersRoute: ProvidersRoute,
   RegionPacksRoute: RegionPacksRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
