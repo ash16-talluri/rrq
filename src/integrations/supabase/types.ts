@@ -14,16 +14,322 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      assistance_requests: {
+        Row: {
+          assigned_technician: string | null
+          created_at: string
+          description: string | null
+          id: string
+          latitude: number | null
+          location_text: string | null
+          longitude: number | null
+          status: Database["public"]["Enums"]["request_status"]
+          type: Database["public"]["Enums"]["request_type"]
+          updated_at: string
+          user_id: string
+          vehicle_id: string | null
+        }
+        Insert: {
+          assigned_technician?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          latitude?: number | null
+          location_text?: string | null
+          longitude?: number | null
+          status?: Database["public"]["Enums"]["request_status"]
+          type: Database["public"]["Enums"]["request_type"]
+          updated_at?: string
+          user_id: string
+          vehicle_id?: string | null
+        }
+        Update: {
+          assigned_technician?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          latitude?: number | null
+          location_text?: string | null
+          longitude?: number | null
+          status?: Database["public"]["Enums"]["request_status"]
+          type?: Database["public"]["Enums"]["request_type"]
+          updated_at?: string
+          user_id?: string
+          vehicle_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assistance_requests_vehicle_id_fkey"
+            columns: ["vehicle_id"]
+            isOneToOne: false
+            referencedRelation: "vehicles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          emergency_contact_name: string | null
+          emergency_contact_phone: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          emergency_contact_name?: string | null
+          emergency_contact_phone?: string | null
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          emergency_contact_name?: string | null
+          emergency_contact_phone?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      region_pack_items: {
+        Row: {
+          created_at: string
+          extra_address: string | null
+          extra_name: string | null
+          extra_phone: string | null
+          extra_type: string | null
+          id: string
+          notes: string | null
+          pack_id: string
+          provider_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          extra_address?: string | null
+          extra_name?: string | null
+          extra_phone?: string | null
+          extra_type?: string | null
+          id?: string
+          notes?: string | null
+          pack_id: string
+          provider_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          extra_address?: string | null
+          extra_name?: string | null
+          extra_phone?: string | null
+          extra_type?: string | null
+          id?: string
+          notes?: string | null
+          pack_id?: string
+          provider_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "region_pack_items_pack_id_fkey"
+            columns: ["pack_id"]
+            isOneToOne: false
+            referencedRelation: "region_packs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "region_pack_items_provider_id_fkey"
+            columns: ["provider_id"]
+            isOneToOne: false
+            referencedRelation: "service_providers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      region_packs: {
+        Row: {
+          created_at: string
+          description: string | null
+          highway: string | null
+          id: string
+          name: string
+          region: string | null
+          size_kb: number | null
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          highway?: string | null
+          id?: string
+          name: string
+          region?: string | null
+          size_kb?: number | null
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          highway?: string | null
+          id?: string
+          name?: string
+          region?: string | null
+          size_kb?: number | null
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      service_providers: {
+        Row: {
+          address: string | null
+          city: string | null
+          created_at: string
+          hours: string | null
+          id: string
+          latitude: number | null
+          longitude: number | null
+          name: string
+          open_24h: boolean | null
+          phone: string | null
+          rating: number | null
+          region: string | null
+          type: Database["public"]["Enums"]["provider_type"]
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          created_at?: string
+          hours?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name: string
+          open_24h?: boolean | null
+          phone?: string | null
+          rating?: number | null
+          region?: string | null
+          type: Database["public"]["Enums"]["provider_type"]
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          created_at?: string
+          hours?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          open_24h?: boolean | null
+          phone?: string | null
+          rating?: number | null
+          region?: string | null
+          type?: Database["public"]["Enums"]["provider_type"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      vehicles: {
+        Row: {
+          color: string | null
+          created_at: string
+          fuel_type: string | null
+          id: string
+          make: string | null
+          model: string | null
+          updated_at: string
+          user_id: string
+          vehicle_number: string
+          year: number | null
+        }
+        Insert: {
+          color?: string | null
+          created_at?: string
+          fuel_type?: string | null
+          id?: string
+          make?: string | null
+          model?: string | null
+          updated_at?: string
+          user_id: string
+          vehicle_number: string
+          year?: number | null
+        }
+        Update: {
+          color?: string | null
+          created_at?: string
+          fuel_type?: string | null
+          id?: string
+          make?: string | null
+          model?: string | null
+          updated_at?: string
+          user_id?: string
+          vehicle_number?: string
+          year?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "user" | "technician" | "admin"
+      provider_type:
+        | "puncture_shop"
+        | "mechanic"
+        | "towing"
+        | "fuel_station"
+        | "hospital"
+        | "police"
+      request_status:
+        | "pending"
+        | "accepted"
+        | "in_progress"
+        | "resolved"
+        | "cancelled"
+      request_type:
+        | "puncture"
+        | "blowout"
+        | "dead_battery"
+        | "wont_start"
+        | "mechanical"
+        | "other"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +456,31 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["user", "technician", "admin"],
+      provider_type: [
+        "puncture_shop",
+        "mechanic",
+        "towing",
+        "fuel_station",
+        "hospital",
+        "police",
+      ],
+      request_status: [
+        "pending",
+        "accepted",
+        "in_progress",
+        "resolved",
+        "cancelled",
+      ],
+      request_type: [
+        "puncture",
+        "blowout",
+        "dead_battery",
+        "wont_start",
+        "mechanical",
+        "other",
+      ],
+    },
   },
 } as const
