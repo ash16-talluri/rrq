@@ -9,7 +9,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/assistant")({
   head: () => ({
     meta: [
-      { title: "AI Assistant — RoadRescue" },
+      { title: "AI Assistant — RoadResQ" },
       { name: "description", content: "Describe a vehicle symptom and get likely causes, safety steps, and the right service to call." },
     ],
   }),
