@@ -59,7 +59,7 @@ function GuideDetail() {
       )}
 
       <ol className="space-y-4">
-        {guide.steps.map((s, i) => (
+        {guide.steps.map((s: { title: string; body: string }, i: number) => (
           <li key={i} className="glass rounded-2xl p-5">
             <div className="flex gap-4">
               <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary font-display text-lg font-bold text-primary-foreground">
