@@ -16,13 +16,13 @@ import { useEffect, useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "RoadRescue — Emergency Roadside Assistance" },
+      { title: "RoadResQ — Emergency Roadside Assistance" },
       {
         name: "description",
         content:
           "Offline-ready roadside help for highway emergencies. Downloadable region packs, illustrated repair guides, nearby mechanics, AI assistant.",
       },
-      { property: "og:title", content: "RoadRescue — Emergency Roadside Assistance" },
+      { property: "og:title", content: "RoadResQ — Emergency Roadside Assistance" },
       {
         property: "og:description",
         content: "Offline-first roadside help: SOS, region packs, guides, AI assistant.",
@@ -67,7 +67,7 @@ function Landing() {
             <span className="text-primary text-glow">Help is one tap away.</span>
           </h1>
           <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
-            RoadRescue works even without internet. Download region packs for your route, follow
+            RoadResQ works even without internet. Download region packs for your route, follow
             illustrated repair guides offline, and reach mechanics, tow trucks, and emergency
             services in seconds.
           </p>
@@ -128,7 +128,7 @@ function Landing() {
               <ShieldCheck className="h-4 w-4" /> Built for emergencies
             </div>
             <h2 className="mt-2 font-display text-2xl font-bold md:text-3xl">
-              Install RoadRescue on your phone
+              Install RoadResQ on your phone
             </h2>
             <p className="mt-2 max-w-xl text-muted-foreground">
               Add it to your home screen for instant access — works offline once installed.

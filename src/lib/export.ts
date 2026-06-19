@@ -26,7 +26,7 @@ export function exportPackToPdf(pack: OfflinePack) {
   doc.setTextColor(240, 138, 62);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
-  doc.text("RoadRescue", 40, 50);
+  doc.text("RoadResQ", 40, 50);
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(13);
   doc.text("Offline Region Pack", 40, 72);
@@ -119,7 +119,7 @@ export function exportPackToPdf(pack: OfflinePack) {
     pack.extras.forEach((e) => addRow(e.name, e.type, e.phone, e.address));
   }
 
-  const footer = `Generated ${new Date().toLocaleString()} • RoadRescue offline pack`;
+  const footer = `Generated ${new Date().toLocaleString()} • RoadResQ offline pack`;
   doc.setFontSize(8);
   doc.setTextColor(150, 150, 150);
   for (let i = 1; i <= doc.getNumberOfPages(); i++) {
@@ -169,7 +169,7 @@ export function exportPackToDoc(pack: OfflinePack) {
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${escapeHtml(pack.name)}</title></head>
     <body style="font-family:Arial,sans-serif;color:#111;max-width:720px;margin:24px auto;">
-      <h1 style="color:#f08a3e;">RoadRescue — ${escapeHtml(pack.name)}</h1>
+      <h1 style="color:#f08a3e;">RoadResQ — ${escapeHtml(pack.name)}</h1>
       <p style="color:#555;">${escapeHtml(pack.region ?? "")} ${pack.highway ? "• " + escapeHtml(pack.highway) : ""}</p>
       ${pack.description ? `<p>${escapeHtml(pack.description)}</p>` : ""}
       ${groupHtml}

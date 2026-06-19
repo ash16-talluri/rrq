@@ -17,7 +17,7 @@ const TYPE_META: Record<string, { label: string; icon: typeof Wrench; color: str
 export const Route = createFileRoute("/providers")({
   head: () => ({
     meta: [
-      { title: "Nearby Service Providers — RoadRescue" },
+      { title: "Nearby Service Providers — RoadResQ" },
       { name: "description", content: "Mechanics, tow trucks, puncture shops, fuel, hospitals, and police across major highways." },
     ],
   }),

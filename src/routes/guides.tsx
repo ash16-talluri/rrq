@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export const Route = createFileRoute("/guides")({
   head: () => ({
     meta: [
-      { title: "Offline Emergency Guides — RoadRescue" },
+      { title: "Offline Emergency Guides — RoadResQ" },
       { name: "description", content: "Step-by-step offline guides: change a tyre, handle a blowout, jump-start a battery, check coolant." },
     ],
   }),

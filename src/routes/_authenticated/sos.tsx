@@ -92,7 +92,7 @@ function SosPage() {
   const typeLabel = TYPES.find((t) => t.value === type)?.label ?? type;
 
   const smsBody = [
-    `🚨 RoadRescue SOS`,
+    `🚨 RoadResQ SOS`,
     `Problem: ${typeLabel}`,
     vehicle ? `Vehicle: ${vehicle.vehicle_number} (${[vehicle.make, vehicle.model].filter(Boolean).join(" ") || "—"})` : null,
     profile?.full_name ? `From: ${profile.full_name}` : null,

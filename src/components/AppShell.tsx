@@ -75,7 +75,7 @@ export function AppShell({
             <div className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground">
               <ShieldCheck className="h-5 w-5" />
             </div>
-            <div className="font-display text-lg font-bold tracking-tight">RoadRescue</div>
+            <div className="font-display text-lg font-bold tracking-tight">RoadResQ</div>
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -181,7 +181,7 @@ export function AppShell({
       <main className="mx-auto max-w-7xl px-4 py-8">{children}</main>
 
       <footer className="mx-auto max-w-7xl px-4 py-8 text-center text-xs text-muted-foreground">
-        RoadRescue • Stay safe out there. In a life-threatening emergency, call <strong>112</strong>.
+        RoadResQ • Stay safe out there. In a life-threatening emergency, call <strong>112</strong>.
       </footer>
     </div>
   );

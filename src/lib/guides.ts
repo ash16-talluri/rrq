@@ -39,7 +39,7 @@ export const GUIDES: Guide[] = [
       { title: "Ease off the accelerator gradually", body: "Allow speed to drop slowly. Keep the car pointed straight." },
       { title: "Signal and steer to the shoulder", body: "Once below ~30 km/h, gently brake and steer to the hard shoulder, well off the carriageway." },
       { title: "Hazard lights & warning triangle", body: "Turn on hazards. Place a reflective triangle 50–100m behind the car. Get all passengers behind the safety barrier, away from traffic." },
-      { title: "Call for help", body: "Use RoadRescue or the highway helpline (1033 in India). Never attempt to change a tyre on the carriageway side." },
+      { title: "Call for help", body: "Use RoadResQ or the highway helpline (1033 in India). Never attempt to change a tyre on the carriageway side." },
     ],
   },
   {
