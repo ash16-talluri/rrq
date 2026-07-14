@@ -9,8 +9,8 @@ import { ShieldCheck, ArrowLeft, Loader2 } from "lucide-react";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — RoadResQ" },
-      { name: "description", content: "Sign in or create your RoadResQ account." },
+      { title: "Sign in — TravAID" },
+      { name: "description", content: "Sign in or create your TravAID account." },
     ],
   }),
   component: AuthPage,
@@ -90,7 +90,7 @@ function AuthPage() {
               <ShieldCheck className="h-6 w-6" />
             </div>
             <div>
-              <div className="font-display text-2xl font-bold">RoadResQ</div>
+              <div className="font-display text-2xl font-bold">TravAID</div>
               <div className="text-xs text-muted-foreground">Help on the road, online or off.</div>
             </div>
           </div>

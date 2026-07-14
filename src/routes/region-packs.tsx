@@ -16,7 +16,7 @@ import { exportPackToDoc, exportPackToPdf } from "@/lib/export";
 export const Route = createFileRoute("/region-packs")({
   head: () => ({
     meta: [
-      { title: "Region Packs — RoadResQ" },
+      { title: "Region Packs — TravAID" },
       { name: "description", content: "Download offline highway packs with mechanics, fuel, hospitals, and emergency contacts." },
     ],
   }),
