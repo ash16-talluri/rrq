@@ -63,11 +63,10 @@ function Landing() {
             )}
           </div>
           <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-tight md:text-6xl">
-            Stranded on the highway?{" "}
-            <span className="text-primary text-glow">Help is one tap away.</span>
+            Breakdown? <span className="text-primary text-glow">No worries — help is one tap away.</span>
           </h1>
           <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
-            TravAID works even without internet. Download region packs for your route, follow
+            🚗 TravAID works even without internet. Download region packs for your route, follow
             illustrated repair guides offline, and reach mechanics, tow trucks, and emergency
             services in seconds.
           </p>
