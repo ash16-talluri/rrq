@@ -23,7 +23,7 @@ export const analyzeSymptom = createServerFn({ method: "POST" })
       ? `Vehicle: ${[data.vehicle.year, data.vehicle.make, data.vehicle.model].filter(Boolean).join(" ")}${data.vehicle.fuel_type ? ` (${data.vehicle.fuel_type})` : ""}.`
       : "";
 
-    const system = `You are RoadResQ's roadside assistant for drivers stranded on highways. The user describes a problem in plain language.
+    const system = `You are TravAID's roadside assistant for drivers stranded on highways. The user describes a problem in plain language.
 Respond with a strict JSON object matching this TypeScript type:
 {
   "severity": "low" | "medium" | "high" | "critical",

@@ -9,8 +9,8 @@ import { ShieldCheck, ArrowLeft, Loader2 } from "lucide-react";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — RoadResQ" },
-      { name: "description", content: "Sign in or create your RoadResQ account." },
+      { title: "Sign in — TravAID" },
+      { name: "description", content: "Sign in or create your TravAID account." },
     ],
   }),
   component: AuthPage,
@@ -36,7 +36,7 @@ function AuthPage() {
     setLoading(true);
     try {
       if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
@@ -45,6 +45,17 @@ function AuthPage() {
           },
         });
         if (error) throw error;
+        // If email confirmation is required, session will be null
+        if (!data.session) {
+          // Try immediate sign-in in case confirmations are off but the SDK didn't return a session
+          const { data: signInData, error: signInErr } = await supabase.auth.signInWithPassword({ email, password });
+          if (signInErr || !signInData.session) {
+            toast.success("Account created! Check your email to confirm, then sign in.");
+            setMode("signin");
+            setLoading(false);
+            return;
+          }
+        }
         toast.success("Account created. You're signed in.");
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -53,7 +64,13 @@ function AuthPage() {
       }
       navigate({ to: "/dashboard", replace: true });
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Auth failed");
+      const msg = err instanceof Error ? err.message : "Auth failed";
+      if (/already registered|already exists/i.test(msg)) {
+        toast.error("That email is already registered. Try signing in instead.");
+        setMode("signin");
+      } else {
+        toast.error(msg);
+      }
     } finally {
       setLoading(false);
     }
@@ -90,7 +107,7 @@ function AuthPage() {
               <ShieldCheck className="h-6 w-6" />
             </div>
             <div>
-              <div className="font-display text-2xl font-bold">RoadResQ</div>
+              <div className="font-display text-2xl font-bold">TravAID</div>
               <div className="text-xs text-muted-foreground">Help on the road, online or off.</div>
             </div>
           </div>

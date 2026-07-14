@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { getGuide } from "@/lib/guides";
-import { AlertTriangle, ArrowLeft, Clock } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Clock, Download } from "lucide-react";
 
 export const Route = createFileRoute("/guides/$slug")({
   loader: ({ params }) => {
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/guides/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.guide.title} — RoadResQ` },
+          { title: `${loaderData.guide.title} — TravAID` },
           { name: "description", content: `${loaderData.guide.title}: ${loaderData.guide.steps.length} step offline guide.` },
         ]
       : [],
@@ -35,7 +35,7 @@ function GuideDetail() {
 
       <header className="mb-6 flex items-start gap-5">
         <div className="text-6xl leading-none">{guide.icon}</div>
-        <div>
+        <div className="flex-1">
           <h1 className="font-display text-3xl font-bold md:text-4xl">{guide.title}</h1>
           <div className="mt-2 flex items-center gap-3 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1">
@@ -45,6 +45,13 @@ function GuideDetail() {
               {guide.difficulty}
             </span>
           </div>
+          <a
+            href={`/manuals/${guide.slug}.pdf`}
+            download
+            className="mt-3 inline-flex items-center gap-2 rounded-lg gradient-emergency px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)]"
+          >
+            <Download className="h-4 w-4" /> Download PDF manual (offline)
+          </a>
         </div>
       </header>
 

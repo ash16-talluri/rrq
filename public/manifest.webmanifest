@@ -1,6 +1,6 @@
 {
-  "name": "RoadResQ — Emergency Roadside Assistance",
-  "short_name": "RoadResQ",
+  "name": "TravAID — Emergency Roadside Assistance",
+  "short_name": "TravAID",
   "description": "Emergency roadside help with offline support, region packs, and AI assistant.",
   "start_url": "/",
   "scope": "/",

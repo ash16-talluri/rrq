@@ -72,13 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { name: "theme-color", content: "#0f1620" },
-      { title: "RoadResQ — Emergency Roadside Assistance" },
+      { title: "TravAID — Emergency Roadside Assistance" },
       {
         name: "description",
         content:
           "Get roadside help fast — offline region packs, emergency guides, nearby mechanics & tow trucks. Works without internet.",
       },
-      { property: "og:title", content: "RoadResQ — Emergency Roadside Assistance" },
+      { property: "og:title", content: "TravAID — Emergency Roadside Assistance" },
       { property: "og:description", content: "Offline-ready roadside help: guides, nearby providers, SOS, AI assistant." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
